@@ -1,7 +1,7 @@
-/* netflixscan offline cache - version d51910bbf488
+/* netflixscan offline cache - version 337fbcd54294
    Built by 'netflixscan.py publish'. Do not edit by hand; republishing
    regenerates it with a new version, which is what evicts the old copy. */
-const VERSION = "d51910bbf488";
+const VERSION = "337fbcd54294";
 const CACHE = "netflixscan-" + VERSION;
 const SHELL = ["./", "./index.html", "./manifest.webmanifest",
                "./icon-180.png", "./icon-192.png", "./icon-512.png",
