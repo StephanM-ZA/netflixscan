@@ -1,7 +1,7 @@
-/* netflixscan offline cache - version 3582d5c777fa
+/* netflixscan offline cache - version b555924f186f
    Built by 'netflixscan.py publish'. Do not edit by hand; republishing
    regenerates it with a new version, which is what evicts the old copy. */
-const VERSION = "3582d5c777fa";
+const VERSION = "b555924f186f";
 const CACHE = "netflixscan-" + VERSION;
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg",
                "./icon-180.png", "./icon-192.png", "./icon-512.png",
@@ -38,6 +38,10 @@ self.addEventListener("fetch", e => {
     );
     return;
   }
+
+  // The freshness probe must always hit the network, or the page would be
+  // asking its own cache whether the cache is stale.
+  if (req.url.indexOf("version.json") !== -1) return;
 
   e.respondWith(caches.match(req).then(hit => hit || fetch(req)));
 });
